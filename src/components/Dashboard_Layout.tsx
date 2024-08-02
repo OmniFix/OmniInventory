@@ -21,17 +21,16 @@ export default function Dashboard_Layout({ children }: DashboardLayoutProps) {
                 </Link>
               </li>
               <li>
-                <Link to="/customers" className="block p-4 hover:bg-gray-700">
-                  Customers
+                <Link to="/customers-logs" className="block p-4 hover:bg-gray-700">
+                  Customers Logs
                 </Link>
               </li>
+
               {/* Add more navigation links as needed */}
             </ul>
           </nav>
         </aside>
-          <main className="p-4">{children}</main>
-        <div className="flex-1">
-        </div>
+          <main className="w-full h-full overflow-auto ">{children}</main>
       </div>
     </div>
   );

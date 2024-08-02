@@ -1,12 +1,14 @@
 import React from "react";
 
-interface Custom_SearchBarProps {
+interface Custom_InputProps {
+  type?: string;
   placeholder?: string;
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
 }
-export const Custom_SearchBar: React.FC<Custom_SearchBarProps> = ({
+export const Custom_Input: React.FC<Custom_InputProps> = ({
+  type,
   placeholder,
   value,
   onChange,
@@ -14,11 +16,11 @@ export const Custom_SearchBar: React.FC<Custom_SearchBarProps> = ({
 }) => {
   return (
     <input
-      type="text"
+      type={type ? type : "text"}
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className={`px-4 py-2 border text-red-500 border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 ${className}`}
+      className={`px-4 w-full py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-400 ${className}`}
     />
   );
 };

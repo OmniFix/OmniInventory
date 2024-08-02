@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import logo from "../assets/icons/logo_with_text.png";
-import { Custom_SearchBar } from "./Custom_SearchBar";
+import { Custom_SearchBar } from "./inputsfields/Custom_SearchBar";
 import { FaRegBell } from "react-icons/fa6";
 
 export const Navbar: React.FC = () => {
   const [search, setSearch] = useState("");
   return (
-    <nav className="bg-white p-4">
+    <nav className="bg-white p-4 border-b border-gray-300">
       <div className="flex flex-wrap justify-between items-center">
         {/* Logo */}
         <div className="flex-shrink-0">
           <img
             src={logo}
             alt="OmniInventory"
-            className="h-6 w-auto object-contain"
+            className="h-5 w-auto object-contain"
           />
         </div>
 
