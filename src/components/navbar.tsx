@@ -1,37 +1,23 @@
-import React, { useState } from "react";
-import logo from "../assets/icons/logo_with_text.png";
-import { Custom_SearchBar } from "./inputsfields/Custom_SearchBar";
-import { FaRegBell } from "react-icons/fa6";
+import React from "react";
+import { FaRegBell, FaBars } from "react-icons/fa6";
 
 export const Navbar: React.FC = () => {
-  const [search, setSearch] = useState("");
   return (
-    <nav className="bg-white p-4 border-b border-gray-300">
-      <div className="flex flex-wrap justify-between items-center">
-        {/* Logo */}
-        <div className="flex-shrink-0">
-          <img
-            src={logo}
-            alt="OmniInventory"
-            className="h-5 w-auto object-contain"
-          />
+    <nav className="bg-white py-4 px-2 md:px-4 border-b border-gray-300">
+      <div className="flex justify-between items-center">
+        <div className="flex items-center space-x-4">
+          <FaBars className="h-4 w-4 text-gray-800 hover:text-red-500 cursor-pointer md:hidden" />
         </div>
 
-        {/* Search Bar */}
-        <div className="flex-1 flex justify-center mx-4 mt-2 md:mt-0">
-          <Custom_SearchBar
-            placeholder="Search customers"
-            value={search}
-            onChange={(event) => {
-              setSearch(event.target.value);
-            }}
-            className="w-full max-w-xs md:max-w-md lg:max-w-lg"
-          />
+        <div className="flex-1 flex justify-center ">
+          <p className="font-PoppinsRegular text-base md:text-2xl text-gray-800">
+            {" "}
+            <span className="text-red-500"> Haider </span> Computer Services
+          </p>
         </div>
 
-        {/* Icons */}
-        <div className="flex space-x-4 text-black mt-2 md:mt-0">
-          <FaRegBell className="h-6 w-6 text-red-500 hover:text-blue-600 cursor-pointer" />
+        <div className="flex space-x-4 mr-2">
+          <FaRegBell className="h-4 md:h-6 w-4 md:w-6 text-red-500 hover:text-gray-800 cursor-pointer" />
         </div>
       </div>
     </nav>

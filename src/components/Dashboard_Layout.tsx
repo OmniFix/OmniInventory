@@ -7,11 +7,13 @@ type DashboardLayoutProps = {
 };
 
 export default function Dashboard_Layout({ children }: DashboardLayoutProps) {
+
   return (
-    <div className="flex flex-col w-screen h-screen">
+    <div className="flex flex-col w-screen h-screen overflow-x-hidden">
       <Navbar />
-      <div className="flex w-full h-full">
-        <aside className="w-64 bg-gray-800 text-white">
+      {/* <div className="flex w-full h-full"> */}
+      <div className="flex flex-1">
+        <aside className="hidden md:flex flex-col md:w-64 md:bg-gray-800 md:text-white">
           <div className="p-4 text-2xl font-bold">OmniInventory</div>
           <nav>
             <ul>
@@ -30,7 +32,8 @@ export default function Dashboard_Layout({ children }: DashboardLayoutProps) {
             </ul>
           </nav>
         </aside>
-          <main className="w-full h-full overflow-auto ">{children}</main>
+        {/* <main className="flex-1 overflow-auto">{children}</main> */}
+          <main className="w-full h-full px-8 md:px-10 py-2 md:py-5">{children}</main>
       </div>
     </div>
   );
