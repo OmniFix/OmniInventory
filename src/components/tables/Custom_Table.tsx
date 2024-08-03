@@ -32,7 +32,7 @@ export default function Custom_Table() {
             <tr
               key={row.name}
               className={`${
-                index % 2 === 0 ? "bg-gray-50" : "bg-white"
+                index % 2 === 0 ? "bg-gray-100" : "bg-white"
               } border-b border-gray-200`}
             >
               <CustomerLog_Cell>{row.jobno}</CustomerLog_Cell>

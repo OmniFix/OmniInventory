@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Custom_Input } from "../inputsfields/Custom_Input";
 import { Custom_Button } from "../buttons/Custom_Button";
+import { FaSquarePlus } from "react-icons/fa6";
 
-export default function Customer_Add() {
+export const Customer_Add = () => {
   const [formData, setFormData] = useState({
     name: "",
     item: "",
@@ -11,26 +12,34 @@ export default function Customer_Add() {
     extradetail: "",
   });
 
+  const [showExtraInfo, setShowExtraInfo] = useState(false);
+
+  const toggleExtraInfo = () => {
+    setShowExtraInfo(!showExtraInfo);
+  };
+
   return (
-    <div className="bg-gray-200 p-8 rounded-md">
-      <form className="flex flex-col gap-3">
-        <div className="flex justify-between">
+    <div className="bg-gray-100 p-4 sm:p-6 md:p-8 rounded-md shadow hover:shadow-md">
+      <form className="flex flex-col gap-4">
+        <div className="flex justify-between ">
           <div className="flex">
-            <p>Job No:</p>
-            <p className="ml-1 border-b border-gray-800 text-red-500">0000</p>
+            <p className="text-base font-PoppinsRegular">Job No:</p>
+            <p className="ml-1 text-base underline underline-offset-1 text-red-500">
+              0000
+            </p>
           </div>
 
           <div className="flex">
-            <p>Date:</p>
-            <p className="ml-1 border-b border-gray-800 text-red-500">
+            <p className="text-base font-PoppinsRegular">Date:</p>
+            <p className="ml-1 text-base underline underline-offset-1 text-red-500">
               {new Date().toLocaleDateString()}
             </p>
           </div>
         </div>
 
-        <div className="flex justify-between">
-          <div className="w-full mr-2">
-            <p className="text-sm ml-1 font-PoppinsRegular">
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="w-full md:mr-2">
+            <p className="text-base ml-1 font-PoppinsRegular">
               Name<span className="text-red-600">*</span>
             </p>
             <Custom_Input
@@ -42,8 +51,8 @@ export default function Customer_Add() {
             />
           </div>
 
-          <div className="w-full ml-2">
-            <p className="text-sm ml-1 font-PoppinsRegular">
+          <div className="w-full md:ml-2">
+            <p className="text-base ml-1 font-PoppinsRegular">
               Item<span className="text-red-600">*</span>
             </p>
             <Custom_Input
@@ -56,13 +65,13 @@ export default function Customer_Add() {
           </div>
         </div>
 
-        <div className="flex justify-between">
-          <div className="w-full mr-2">
-            <p className="text-sm ml-1 font-PoppinsRegular">
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="w-full md:mr-2">
+            <p className="text-base ml-1 font-PoppinsRegular">
               Problem<span className="text-red-600">*</span>
             </p>
             <Custom_Input
-              placeholder="e.g Display Issue"
+              placeholder="e.g. Display Issue"
               value={formData.problem}
               onChange={(e) =>
                 setFormData({ ...formData, problem: e.target.value })
@@ -70,13 +79,13 @@ export default function Customer_Add() {
             />
           </div>
 
-          <div className="w-full ml-2">
-            <p className="text-sm ml-1 font-PoppinsRegular">
-              Phone No <span className="text-red-600">*</span>
+          <div className="w-full md:ml-2">
+            <p className="text-base ml-1 font-PoppinsRegular">
+              Phone No<span className="text-red-600">*</span>
             </p>
             <Custom_Input
               type="number"
-              placeholder="e.g 03123456789"
+              placeholder="e.g. 03123456789"
               value={formData.phoneno}
               onChange={(e) =>
                 setFormData({ ...formData, phoneno: e.target.value })
@@ -84,6 +93,30 @@ export default function Customer_Add() {
             />
           </div>
         </div>
+
+        {!showExtraInfo && (
+          <div
+            className="flex items-center cursor-pointer"
+            onClick={toggleExtraInfo}
+          >
+            <FaSquarePlus className="text-lg text-gray-800" />
+            <span className="ml-2 text-base font-PoppinsRegular">
+              Extra Detail
+            </span>
+          </div>
+        )}
+        {showExtraInfo && (
+          <div className="">
+            <p className="text-base ml-1 font-PoppinsRegular">Extra Detail</p>
+            <Custom_Input
+              placeholder="e.g. Advance Payement"
+              value={formData.extradetail}
+              onChange={(e) =>
+                setFormData({ ...formData, extradetail: e.target.value })
+              }
+            />
+          </div>
+        )}
 
         <Custom_Button
           text="Add Customer"
@@ -95,4 +128,4 @@ export default function Customer_Add() {
       </form>
     </div>
   );
-}
+};
