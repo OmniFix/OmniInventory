@@ -1,10 +1,10 @@
 import React from "react";
 
-interface CustomerLog_HeaderProps {
+interface HeaderProps {
   headers: string[];
 }
 
-export const CustomerLog_Header: React.FC<CustomerLog_HeaderProps> = ({
+export const Table_Header: React.FC<HeaderProps> = ({
   headers,
 }) => {
   return (

@@ -1,18 +1,33 @@
+import { Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Dashboard_Layout from "../components/Dashboard_Layout";
-import {Dashboard} from "../pages/Dashboard";
-import Customer_Logs from "../pages/Customer_Logs";
+import { Menu_Layout } from "../modules/website/pages/menubar";
+import { NewDashboard } from "../pages/newDashboard";
+import { CustomerLogs } from "../pages/customerLogs"; // Corrected import
+import {Spinner} from "../shared/components/spinner";
 
-export default function App_Router() {
+export const App_Router = () => {
   return (
     <Router>
-      <Dashboard_Layout>
+      <Menu_Layout>
         <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/customers-logs" element={<Customer_Logs />} />
-          {/* Add more routes as needed */}
+          <Route
+            path="/dashboard"
+            element={
+              <Suspense fallback={<Spinner fullPage />}>
+                <NewDashboard />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/customers-logs"
+            element={
+              <Suspense fallback={<Spinner fullPage />}>
+                <CustomerLogs />
+              </Suspense>
+            }
+          />
         </Routes>
-      </Dashboard_Layout>
+      </Menu_Layout>
     </Router>
   );
-}
+};

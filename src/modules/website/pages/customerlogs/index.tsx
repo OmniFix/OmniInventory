@@ -1,8 +1,8 @@
 import * as React from "react";
-import {Customer_Add} from "../components/customerlogs/Customer_Add";
-import Custom_Table from "../components/tables/Custom_Table";
+import { Add_Customer } from "./components/addcustomer";
+import { Customer_Table } from "./components/customertable";
 
-export default function Customer_Logs() {
+export const Customer_Logs = () => {
   return (
     <React.Fragment>
       <div className="">
@@ -12,12 +12,12 @@ export default function Customer_Logs() {
       </div>
 
       <div className="my-3 md:my-5">
-        <Customer_Add />
+        <Add_Customer />
       </div>
 
       <div className="my-3 md:my-5">
-        <Custom_Table />
+        <Customer_Table />
       </div>
     </React.Fragment>
   );
-}
+};

@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Custom_Input } from "../inputsfields/Custom_Input";
-import { Custom_Button } from "../buttons/Custom_Button";
+import { Custom_Input } from "../../../../../../shared/components/inputFields/Custom_Input";
+import { Custom_Button } from "../../../../../../shared/components/button/Custom_Button";
 import { FaSquarePlus } from "react-icons/fa6";
 
-export const Customer_Add = () => {
+export const Add_Customer = () => {
   const [formData, setFormData] = useState({
     name: "",
     item: "",
