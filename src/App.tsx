@@ -1,4 +1,4 @@
-import App_Router from "./routers/App_Router";
+import {App_Router} from "./routers/App_Router";
 
 export default function App() {
   return (

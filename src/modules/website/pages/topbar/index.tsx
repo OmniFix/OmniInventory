@@ -1,7 +1,7 @@
 import React from "react";
 import { FaRegBell, FaBars } from "react-icons/fa6";
 
-export const Navbar: React.FC = () => {
+export const TopBar: React.FC = () => {
   return (
     <nav className="bg-white py-4 px-2 md:px-4 border-b border-gray-300">
       <div className="flex justify-between items-center">

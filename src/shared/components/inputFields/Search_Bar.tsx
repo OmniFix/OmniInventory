@@ -1,12 +1,12 @@
 import React from "react";
 
-interface Custom_SearchBarProps {
+interface SearchBarProps {
   placeholder?: string;
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
 }
-export const Custom_SearchBar: React.FC<Custom_SearchBarProps> = ({
+export const Custom_SearchBar: React.FC<SearchBarProps> = ({
   placeholder,
   value,
   onChange,
